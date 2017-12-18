@@ -7,12 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>report</ion-title>
+    <ion-title>Report</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+   
+  <canvas baseChart width="400" height="400"
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [legend]="lineChartLegends"
+                [chartType]="lineChartType"></canvas>
 </ion-content>

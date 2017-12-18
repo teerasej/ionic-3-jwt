@@ -2,7 +2,7 @@ import { ReportProvider } from './../../providers/report/report';
 import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import 'chart.js';
 /**
  * Generated class for the ReportPage page.
  *
@@ -17,6 +17,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ReportPage {
 
+  lineChartData = [];
+  lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'];
+  lineChartLegends = false;
+  lineChartOptions = {
+    responsive: true
+  };
+  lineChartType = 'line';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public reportProvider: ReportProvider) {
   }
 
@@ -28,8 +36,19 @@ export class ReportPage {
 
         this.reportProvider.getReport(val)
           .subscribe(
-          (data) => {
+          (data:any) => {
             console.log(data);
+
+            let valueArray = [];
+
+            data.forEach(month => {
+              valueArray.push(month.value);
+            });
+
+            this.lineChartData = [{
+
+              data: valueArray
+            }];
           },
           (error) => { alert(error.message) }
           )

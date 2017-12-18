@@ -1,4 +1,6 @@
 import {IonicStorageModule} from '@ionic/storage';
+
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -11,6 +13,8 @@ import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from '@angular/common/http/';
 import { ReportProvider } from '../providers/report/report';
 
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,7 +24,8 @@ import { ReportProvider } from '../providers/report/report';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
