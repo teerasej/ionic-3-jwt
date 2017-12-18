@@ -16,11 +16,8 @@ export class ReportProvider {
     console.log('Hello ReportProvider Provider');
   }
 
-  getReport(token) {
-
-    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    
-    return this.http.get(this.baseUrl + '/report/month', { headers: headers });
+  getReport() {
+    return this.http.get(this.baseUrl + '/report/month');
   }
 
 }

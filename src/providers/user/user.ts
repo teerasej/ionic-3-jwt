@@ -1,4 +1,3 @@
-import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -14,18 +13,13 @@ export class UserProvider {
   baseUrl = "http://localhost:8888/reserve-room/src/public/index.php";
 
 
-  constructor(public http: HttpClient, public storage:Storage) {
+  constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
   }
 
   signIn(username, password){
 
-    let json = {
-      "username": username,
-      "password": password
-    }
-
-    return this.http.post(this.baseUrl + "/signin", json);
+    
   }
 
   
